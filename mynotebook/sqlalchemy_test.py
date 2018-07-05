@@ -2,23 +2,37 @@
 
 import toml
 import sqlalchemy
-from sqlalchemy import create_engine, Column, String,Integer,Table,MetaData,ForeignKey
+from sqlalchemy import create_engine, MetaData, ForeignKey, Table, Column, String, Integer, Float, Date, Time
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, mapper
 
+Base = declarative_base()
 
-# 导入配置信息
-CONF_PATH = './config.toml'
-conf = toml.load(CONF_PATH, _dict=dict)
-test_dsn = conf.get('oracle').get('test_dsn')
 
-# 创建实例连接数据库
-engine = create_engine('oracle://{}'.format(test_dsn))
+class MyORM(object):
+    def __init__(self, _conf_path):
+        # 导入配置信息
+        conf = toml.load(_conf_path, _dict=dict)
+        dsn = 'oracle://' + conf.get('oracle').get('test_dsn')
+        engine = create_engine('{}'.format(dsn))
+        self.session = sessionmaker(bind=engine)
 
-conn = engine.connect()
-res = conn.execute("select * from test_a")
-for i in res:
-    print(i)
+    def get_session(self):
+        return self.session
 
-if __name__ == '__main__':
-    pass
+
+class TestA(Base):
+    __tablename__ = 'test_a'
+    id = Column(Integer)
+    name = Column(String(100))
+    counter = Column(Integer)
+    sdate = Column(Date)
+    cost = Column(Float)
+
+
+def my_test():
+
+
+
+if __name__ == "__main__":
+    conf_path = './config.toml'
