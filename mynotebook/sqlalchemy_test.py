@@ -31,7 +31,7 @@ class TestA(Base):
 
 
 def my_test():
-
+    pass
 
 
 if __name__ == "__main__":
