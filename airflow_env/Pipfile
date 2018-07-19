@@ -1,0 +1,11 @@
+[[source]]
+verify_ssl = true
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[dev-packages]
+
+[packages]
+
+[requires]
+python_version = "3.5"
