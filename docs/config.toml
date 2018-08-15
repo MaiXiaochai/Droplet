@@ -1,0 +1,4 @@
+# This is a configuration file.
+
+[oracle]
+test_dsn = 'flxuser:flxuser@146.91.77.248:1521/testdb'
