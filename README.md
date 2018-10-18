@@ -1,3 +1,3 @@
 # Droplet
-this project is a backup of my test code.
-Just for fun and test.
+this project is created to learning.
+Just for fun and learning.
