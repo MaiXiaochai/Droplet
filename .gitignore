@@ -1,1 +1,2 @@
-/mynotebook/config.toml
+*.config.toml
+*.idea/
