@@ -39,11 +39,11 @@ def get_detail_url(detail_url_list):
 
 
 def main_var():
-    thread_detail_url = threading.Thread(target=get_detail_url, args=variables.detail_url_list)
+    thread_detail_url = threading.Thread(target=get_detail_url, args=(variables.detail_url_list, ))
     thread_detail_url.start()
 
     for i in range(10):
-        html_thread = threading.Thread(target=get_detail_html, args=variables.detail_url_list)
+        html_thread = threading.Thread(target=get_detail_html, args=(variables.detail_url_list, ))
         html_thread.start()
 
     start_time = time.time()
