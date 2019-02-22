@@ -31,11 +31,11 @@ class UrlProducer(threading.Thread):
 
     def run(self):
         for i in range(20):
-            # 调用一次acquire方法，计数减1
+            # 每调用一次acquire方法，sem内部计数减1
             # acquire和release方法成对儿使用
-            # 这个release要在Spider内部执行完成后再释放，才是准确的
+            # 这个release要在Spider内部主代码执行完成后再释放，才是准确的
             self.sem.acquire()
-            html_thread = HtmlSpider("https://baidu.com/{}".format(i), sem)
+            html_thread = HtmlSpider("https://baidu.com/{}".format(i), self.sem)
             html_thread.start()
 
 
