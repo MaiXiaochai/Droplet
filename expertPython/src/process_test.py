@@ -11,6 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_compl
 
 range_list = range(25, 40)
 
+
 # ------------------------> 计算类操作 <-----------------------------
 def fib(n):
     if n <= 2:
