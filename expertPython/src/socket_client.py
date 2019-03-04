@@ -13,8 +13,12 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 明确指明自己地址
 client.connect(('127.0.0.1', 8000))
 
-# 因为接收byte类型
-client.send('bobby'.encode('utf8'))
-data = client.recv(1024)
-print(data.decode('utf8'))
-client.close()
+while True:
+    re_data = input()
+    # 因为接收byte类型
+    client.send(re_data.encode('utf8'))
+    data = client.recv(1024)
+    print(data.decode('utf8'))
+
+# client.close()
+
